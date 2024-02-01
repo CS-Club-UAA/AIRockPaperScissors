@@ -9,7 +9,7 @@ cap = cv2.VideoCapture(0)
 # Scale Video
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 500)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 500)
-# White Background
+# Background
 BG = np.zeros((600,1200,3), dtype=np.uint8)
 
 rock = cv2.imread("assets/rock.png", cv2.IMREAD_UNCHANGED)
@@ -84,11 +84,11 @@ while True:
             cv2.putText(BG, result, (650, 575), cv2.FONT_HERSHEY_PLAIN, 4, (0, 0, 0), 4)
             #cv2.putText(BG, aiChoice, (50, 575), cv2.FONT_HERSHEY_PLAIN, 6, (0, 0, 0), 4)
             if aiChoice == "Rock":
-                BG = cvzone.overlayPNG(BG, rock, (50, 0))
+                BG = overlayPNG(BG, rock, (50, 0))
             elif aiChoice == "Scissors":
-                BG = cvzone.overlayPNG(BG, scissors, (50, 0))
+                BG = overlayPNG(BG, scissors, (50, 0))
             elif aiChoice == "Paper":
-                BG = cvzone.overlayPNG(BG, paper, (50, 0))
+                BG = overlayPNG(BG, paper, (50, 0))
 
 
     # Paste webcam onto background
